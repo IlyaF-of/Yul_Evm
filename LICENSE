@@ -1,21 +1,23 @@
-MIT License
 
-Copyright (c) 2026 Ilya
+---
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## 🎨 Assets you need to create
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Create folder `assets/` in repo root:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+| File | What to put | Size |
+|------|-------------|------|
+| `banner.png` | Dark theme, "YulEVMPlayground" text, hexagonal EVM pattern, blue/orange accents | 1280×320 |
+| `logo.png` | Hexagon with `</>` or EVM stack icon | 128×128 |
+
+**Quick banner generator** (Canva/Photopea):
+- Background: `#0d1117` (GitHub dark)
+- Accent: `#4a90d9` (EVM blue)
+- Secondary: `#ff6b35` (Yul orange)
+- Font: JetBrains Mono or Fira Code
+
+---
+
+## 🚀 GitHub Topics to set
+
+Go to repo → ⚙️ Settings → Topics:
