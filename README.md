@@ -61,20 +61,26 @@
 
 ---
 
-## 🗺️ Архитектура
+# YulEVMPlayground
 
-Каждый модуль — это изолированный срез EVM: от `calldata` до `transient storage`.
+Интерактивный учебный репозиторий по inline assembly (Yul) в Solidity.  
+Каждый модуль — это изолированная EVM-концепция, реализованная на чистом Yul с fuzz-тестами.
 
-```mermaid
-mindmap
-  root((YulEVMPlayground))
-    CallData
-      CallDataDecoder[04_CallDataDecoder&lt;br/&gt;Ручной парсинг ABI]
-    Memory
-      MemoryInspector[03_MemoryInspector&lt;br/&gt;Layout & Alignment]
-    Storage
-      ProxyYul[02_ProxyYul&lt;br/&gt;EIP-1967 DELEGATECALL]
-    Transient
-      TransientStorage[06_TransientStorage&lt;br/&gt;EIP-1153 TSTORE/TLOAD]
-    Deployment
-      Create2Factory[05_Create2Factory&lt;br/&gt;Deterministic CREATE2]
+## Модули
+
+| № | Название | Чему учит |
+|---|----------|-----------|
+| 01 | **YulBitmap** | Битовые операции, SWAR-popcount, FFS |
+| 02 | **YulProxy** | Delegatecall, EIP-1967, bubble-up revert |
+| 03 | **MemoryInspector** | Layout памяти в Solidity, alignment |
+| 04 | **CallDataDecoder** | Ручной парсинг ABI calldata |
+| 05 | **Create2Factory** | Детерминированный деплой, CREATE2 |
+| 06 | **TransientStorage** | TSTORE/TLOAD (EIP-1153), reentrancy guard |
+
+## Установка
+
+```bash
+git clone &lt;repo&gt;
+cd YulEVMPlayground
+forge install
+forge test -vvv
