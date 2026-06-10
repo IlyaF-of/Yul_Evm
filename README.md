@@ -17,10 +17,6 @@
   </a>
   <a href="https://eips.ethereum.org/EIPS/eip-1153">
     <img src="https://img.shields.io/badge/EVM-Cancun-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white&labelColor=1a1a1a" alt="EVM Cancun">
-  </a>
-  <a href="https://github.com/your-username/YulEVMPlayground/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/your-username/YulEVMPlayground/test.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=CI&labelColor=1a1a1a&color=4CAF50" alt="CI">
-  </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge&logo=open-source-initiative&logoColor=white&labelColor=1a1a1a" alt="License">
   </a>
