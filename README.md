@@ -21,3 +21,24 @@
     <img src="https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge&logo=open-source-initiative&logoColor=white&labelColor=1a1a1a" alt="License">
   </a>
 </p>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                        TITLE ZONE                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/your-username/YulEVMPlayground/main/assets/logo.png" width="48" alt="logo" style="vertical-align: middle;">
+  YulEVMPlayground
+</h1>
+
+<p align="center">
+  <b>Five low-level EVM modules written in pure Yul.</b><br>
+  <i>No <code>abi.encode</code>. No hidden <code>SSTORE</code>. Just you, the stack, and the opcodes.</i>
+</p>
+
+<p align="center">
+  <a href="#-quick-start">🚀 Quick Start</a> •
+  <a href="#-modules">📦 Modules</a> •
+  <a href="#-architecture">🏗️ Architecture</a> •
+  <a href="#-deep-dive">🔬 Deep Dive</a> •
+  <a href="#-gas-comparison">⛽ Gas</a>
+</p>
