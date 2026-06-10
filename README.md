@@ -23,8 +23,7 @@
 <!--                        TITLE ZONE                             -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <h1 align="center">
-  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%234a90d9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E" width="48" alt="logo" style="vertical-align: middle;">
-  YulEVMPlayground
+    YulEVMPlayground
 </h1>
 
 <p align="center">
@@ -50,32 +49,49 @@
 
 ---
 
-## 🏗️ Architecture
+&lt;!-- Banner --&gt;
+&lt;p align="center"&gt;
+  &lt;img src="https://img.shields.io/badge/Solidity-^0.8.26-363636?logo=solidity&logoColor=white" /&gt;
+  &lt;img src="https://img.shields.io/badge/Yul-Inline%20Assembly-2b4c7e" /&gt;
+  &lt;img src="https://img.shields.io/badge/Foundry-Test%20Suite-ffcfcf?logo=ethereum&logoColor=black" /&gt;
+  &lt;img src="https://img.shields.io/badge/EVM-Cancun-3c3c3c" /&gt;
+  &lt;img src="https://img.shields.io/badge/License-MIT-green.svg" /&gt;
+&lt;/p&gt;
+
+&lt;h1 align="center"&gt;YulEVMPlayground&lt;/h1&gt;
+&lt;p align="center"&gt;
+  &lt;b&gt;Пять низкоуровневых модулей EVM, написанных на чистом Yul.&lt;/b&gt;&lt;br&gt;
+  &lt;i&gt;Без &lt;code&gt;abi.encode&lt;/code&gt;. Без скрытых &lt;code&gt;SSTORE&lt;/code&gt;. Только ты, стек и опкоды.&lt;/i&gt;
+&lt;/p&gt;
+
+---
+
+## 📋 Содержание
+
+- [Архитектура](#-архитектура)
+- [Модули](#-модули)
+- [Deep Dive](#-deep-dive)
+- [Gas & Сравнение](#-gas--сравнение)
+- [Быстрый старт](#-быстрый-старт)
+- [Тестирование](#-тестирование)
+- [Лицензия](#-лицензия)
+
+---
+
+## 🗺️ Архитектура
+
+Каждый модуль — это изолированный срез EVM: от `calldata` до `transient storage`.
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#2b4c7e', 'primaryTextColor': '#fff', 'primaryBorderColor': '#1a1a1a', 'lineColor': '#4a90d9', 'secondaryColor': '#1a1a1a', 'tertiaryColor': '#363636'}}}%%
-flowchart TB
-    subgraph Input["📥 Input Layer"]
-        CD[Calldata<br/>04_CallDataDecoder]
-    end
-    
-    subgraph Processing["⚙️ Processing Layer"]
-        MEM[Memory<br/>03_MemoryInspector]
-        TS[Transient Storage<br/>06_TransientStorage]
-    end
-    
-    subgraph Execution["🚀 Execution Layer"]
-        PROXY[Proxy<br/>02_ProxyYul]
-        C2[Factory<br/>05_Create2Factory]
-    end
-    
-    CD --> MEM
-    MEM --> PROXY
-    MEM --> C2
-    TS --> PROXY
-    
-    style CD fill:#2b4c7e,stroke:#4a90d9,stroke-width:2px,color:#fff
-    style MEM fill:#2b4c7e,stroke:#4a90d9,stroke-width:2px,color:#fff
-    style TS fill:#2b4c7e,stroke:#4a90d9,stroke-width:2px,color:#fff
-    style PROXY fill:#1a1a1a,stroke:#4a90d9,stroke-width:2px,color:#fff
-    style C2 fill:#1a1a1a,stroke:#4a90d9,stroke-width:2px,color:#fff
+mindmap
+  root((YulEVMPlayground))
+    CallData
+      CallDataDecoder[04_CallDataDecoder&lt;br/&gt;Ручной парсинг ABI]
+    Memory
+      MemoryInspector[03_MemoryInspector&lt;br/&gt;Layout & Alignment]
+    Storage
+      ProxyYul[02_ProxyYul&lt;br/&gt;EIP-1967 DELEGATECALL]
+    Transient
+      TransientStorage[06_TransientStorage&lt;br/&gt;EIP-1153 TSTORE/TLOAD]
+    Deployment
+      Create2Factory[05_Create2Factory&lt;br/&gt;Deterministic CREATE2]
