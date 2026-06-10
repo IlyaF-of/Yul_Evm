@@ -49,23 +49,6 @@
 
 ---
 
-&lt;!-- Banner --&gt;
-&lt;p align="center"&gt;
-  &lt;img src="https://img.shields.io/badge/Solidity-^0.8.26-363636?logo=solidity&logoColor=white" /&gt;
-  &lt;img src="https://img.shields.io/badge/Yul-Inline%20Assembly-2b4c7e" /&gt;
-  &lt;img src="https://img.shields.io/badge/Foundry-Test%20Suite-ffcfcf?logo=ethereum&logoColor=black" /&gt;
-  &lt;img src="https://img.shields.io/badge/EVM-Cancun-3c3c3c" /&gt;
-  &lt;img src="https://img.shields.io/badge/License-MIT-green.svg" /&gt;
-&lt;/p&gt;
-
-&lt;h1 align="center"&gt;YulEVMPlayground&lt;/h1&gt;
-&lt;p align="center"&gt;
-  &lt;b&gt;Пять низкоуровневых модулей EVM, написанных на чистом Yul.&lt;/b&gt;&lt;br&gt;
-  &lt;i&gt;Без &lt;code&gt;abi.encode&lt;/code&gt;. Без скрытых &lt;code&gt;SSTORE&lt;/code&gt;. Только ты, стек и опкоды.&lt;/i&gt;
-&lt;/p&gt;
-
----
-
 ## 📋 Содержание
 
 - [Архитектура](#-архитектура)
