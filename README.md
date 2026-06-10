@@ -70,12 +70,11 @@
 
 | № | Название | Чему учит |
 |---|----------|-----------|
-| 01 | **YulBitmap** | Битовые операции, SWAR-popcount, FFS |
-| 02 | **YulProxy** | Delegatecall, EIP-1967, bubble-up revert |
-| 03 | **MemoryInspector** | Layout памяти в Solidity, alignment |
-| 04 | **CallDataDecoder** | Ручной парсинг ABI calldata |
-| 05 | **Create2Factory** | Детерминированный деплой, CREATE2 |
-| 06 | **TransientStorage** | TSTORE/TLOAD (EIP-1153), reentrancy guard |
+| 01 | **YulProxy** | Delegatecall, EIP-1967, bubble-up revert |
+| 02 | **MemoryInspector** | Layout памяти в Solidity, alignment |
+| 03 | **CallDataDecoder** | Ручной парсинг ABI calldata |
+| 04 | **Create2Factory** | Детерминированный деплой, CREATE2 |
+| 05 | **TransientStorage** | TSTORE/TLOAD (EIP-1153), reentrancy guard |
 
 ## Установка
 
