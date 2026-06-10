@@ -1,0 +1,10 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+evm_version = "cancun"          # для TSTORE/TLOAD в модуле 05
+optimizer = true
+optimizer_runs = 200
+
+[fmt]
+line_length = 100
