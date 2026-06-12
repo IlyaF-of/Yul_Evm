@@ -1,85 +1,64 @@
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!--                        BADGE ZONE                             -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<p align="center">
-  <a href="https://soliditylang.org/">
-    <img src="https://img.shields.io/badge/Solidity-^0.8.26-363636?style=for-the-badge&logo=solidity&logoColor=white&labelColor=1a1a1a" alt="Solidity">
-  </a>
-  <a href="https://book.getfoundry.sh/">
-    <img src="https://img.shields.io/badge/Built%20with-Foundry-FFDB1C?style=for-the-badge&logo=ethereum&logoColor=black&labelColor=1a1a1a" alt="Foundry">
-  </a>
-  <a href="https://eips.ethereum.org/EIPS/eip-1153">
-    <img src="https://img.shields.io/badge/EVM-Cancun-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white&labelColor=1a1a1a" alt="EVM Cancun">
-  </a>
-  <a href="https://github.com/your-username/YulEVMPlayground/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/your-username/YulEVMPlayground/test.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=CI&labelColor=1a1a1a&color=4CAF50" alt="CI">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge&logo=open-source-initiative&logoColor=white&labelColor=1a1a1a" alt="License">
-  </a>
-</p>
+# 🧪 YulEVMPlayground
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!--                        TITLE ZONE                             -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h1 align="center">
-    YulEVMPlayground
-</h1>
+[![Solidity](https://img.shields.io/badge/Solidity-0.8.26-blue?logo=solidity)](https://soliditylang.org/)
+[![Foundry](https://img.shields.io/badge/Foundry-Forge-orange?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMiAydjIwTTIgMTJoMjAiLz48L3N2Zz4=)](https://book.getfoundry.sh/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)]()
+[![Gas Optimized](https://img.shields.io/badge/Gas-Optimized-success)]()
 
-<p align="center">
-  <b>Five low-level EVM modules written in pure Yul.</b><br>
-  <i>No <code>abi.encode</code>. No hidden <code>SSTORE</code>. Just you, the stack, and the opcodes.</i>
-</p>
-
-<p align="center">
-  <a href="#-quick-start">🚀 Quick Start</a> •
-  <a href="#-modules">📦 Modules</a> •
-  <a href="#-architecture">🏗️ Architecture</a> •
-  <a href="#-deep-dive">🔬 Deep Dive</a> •
-  <a href="#-gas-comparison">⛽ Gas</a>
-</p>
+> **Five low-level EVM modules written in pure Yul.**  
+> *No `abi.encode`. No hidden `SSTORE`. Just you, the stack, and the opcodes.*
 
 ---
 
 ## 📌 Overview
 
-**YulEVMPlayground** is an educational repository that deconstructs core EVM concepts through inline assembly (Yul). Each module is a self-contained, heavily-tested contract demonstrating a specific low-level pattern used in production DeFi protocols.
+**YulEVMPlayground** is a deep-dive educational repository that deconstructs core EVM concepts through inline assembly (Yul). Each module is a **self-contained, heavily-tested contract** demonstrating a specific low-level pattern used in production DeFi protocols.
 
-> **Target audience:** Solidity developers preparing for security audits, gas optimization challenges, or protocol engineering roles.
+### 🎯 Target Audience
+- Solidity developers preparing for **security audits**
+- Engineers tackling **gas optimization challenges**
+- Candidates interviewing for **protocol engineering roles** (Senior/Lead)
+- Developers who want to understand **what happens under the hood**
+
+### 💡 Why This Repo?
+
+Most Solidity developers never write raw Yul. But when you need to:
+- Optimize hot paths in DeFi protocols
+- Implement custom proxy patterns
+- Debug storage collisions
+- Pass technical interviews at top protocols (Uniswap, Aave, Compound)
+
+...you need to understand the EVM at the opcode level.
+
+This repo bridges that gap.
 
 ---
 
-## 📋 Содержание
+## 📦 Modules
 
-- [Архитектура](#-архитектура)
-- [Модули](#-модули)
-- [Deep Dive](#-deep-dive)
-- [Gas & Сравнение](#-gas--сравнение)
-- [Быстрый старт](#-быстрый-старт)
-- [Тестирование](#-тестирование)
-- [Лицензия](#-лицензия)
+| # | Module | What You'll Learn | Production Use Case |
+|---|--------|-------------------|---------------------|
+| 01 | **YulProxy** | `delegatecall`, EIP-1967 slots, bubble-up revert | OpenZeppelin UUPS, Transparent Proxy |
+| 02 | **MemoryInspector** | Memory layout, scratch space, free memory pointer | ABI encoding, dynamic arrays |
+| 03 | **CallDataDecoder** | Manual ABI parsing, `calldataload`, offset math | Custom routers, meta-transactions |
+| 04 | **Create2Factory** | Deterministic deployment, `CREATE2` opcode | Uniswap V3 pools, Gnosis Safe |
+| 05 | **TransientStorage** | `TSTORE`/`TLOAD` (EIP-1153), reentrancy guards | Aave V3, flash loan callbacks |
 
 ---
 
-# YulEVMPlayground
-
-Интерактивный учебный репозиторий по inline assembly (Yul) в Solidity.  
-Каждый модуль — это изолированная EVM-концепция, реализованная на чистом Yul с fuzz-тестами.
-
-## Модули
-
-| № | Название | Чему учит |
-|---|----------|-----------|
-| 01 | **YulProxy** | Delegatecall, EIP-1967, bubble-up revert |
-| 02 | **MemoryInspector** | Layout памяти в Solidity, alignment |
-| 03 | **CallDataDecoder** | Ручной парсинг ABI calldata |
-| 04 | **Create2Factory** | Детерминированный деплой, CREATE2 |
-| 05 | **TransientStorage** | TSTORE/TLOAD (EIP-1153), reentrancy guard |
-
-## Установка
+## 🚀 Quick Start
 
 ```bash
-git clone &lt;repo&gt;
-cd YulEVMPlayground
+# Clone the repository
+git clone https://github.com/IlyaF-of/Yul_Evm.git
+cd Yul_Evm
+
+# Install dependencies
 forge install
+
+# Run all tests with verbose output
 forge test -vvv
+
+# Run specific module tests
+forge test --match-contract ProxyYulTest -vvvv
